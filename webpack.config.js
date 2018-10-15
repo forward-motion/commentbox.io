@@ -5,7 +5,8 @@ module.exports = {
     entry: './src/commentBox.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'commentBox.js',
-        library: 'commentBox'
+        filename: 'commentBox.min.js',
+        library: 'commentBox',
+        libraryTarget: 'umd'
     }
 };

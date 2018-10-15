@@ -1,9 +1,9 @@
 import { parse, stringify } from 'qs';
 
 const defaultOptions = {
-    className: 'commentbox',
-    defaultBoxId: 'commentbox',
-    tlcParam: 'tlc',
+    className: 'commentbox', // the class of divs to look for
+    defaultBoxId: 'commentbox', // the default ID to associate to the div
+    tlcParam: 'tlc', // used for identifying links to comments on your page
     /**
      *
      * @param {string} boxId
@@ -13,14 +13,16 @@ const defaultOptions = {
     createBoxUrl(boxId, pageLocation) {
 
         pageLocation.search = ''; // removes query string!
-        pageLocation.hash = boxId; // creates link to this specific Comment Box
+        pageLocation.hash = boxId; // creates link to this specific Comment Box on your page
         return pageLocation.href; // return url string
     },
     /**
      *
      * @param {number} count
      */
-    onCommentCount(count) {}
+    onCommentCount(count) {
+
+    }
 };
 
 export default function commentBox(projectId, passedOptions = defaultOptions) {

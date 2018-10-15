@@ -2,11 +2,14 @@
   "name": "commentbox.io",
   "version": "0.0.2",
   "description": "",
-  "main": "dist/commentBox.js",
+  "main": "dist/commentBox.min.js",
   "module": "src/commentBox.js",
   "scripts": {
     "start": "webpack"
   },
+  "files": [
+    "./dist/commentBox.min.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/forward-motion/commentbox.io.git"
