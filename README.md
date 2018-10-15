@@ -151,6 +151,19 @@ commentBox('my-project-id', {
 });
 ```
 
+### Displaying comment count outside of the plugin
+
+Some implementations may choose to have a "comments" button that displays the box only when clicked, and may want to show the number of comments available. To get this number, simply pass in the `onCommentCount` option:
+```js
+commentBox('my-project-id', {
+    onCommentCount(count) {
+        // use the count however you wish.
+    }
+});
+```
+Note that this event may fire multiple times.
+
+
 ## Dashboard
 
 ### Signing Up
