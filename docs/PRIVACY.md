@@ -2,7 +2,7 @@
 
 Most privacy policies start with the claim "We take your privacy very seriously". That statement is often followed by obscure paragraphs meant to circumvent that very same claim. The purpose of this document is not to tell you how seriously we take your privacy, but to give you all the information you need to determine for yourself just how serious we are. 
 
-This document is meant to cover the website at [https://commentbox.io] ("the website"), the dashboard application at [https://dashboard.commentbox.io] ("the dashboard"), and the embedded commenting plugin ("the plugin"). For each, we will outline the following:
+This document is meant to cover the website at https://commentbox.io ("the website"), the dashboard application at https://dashboard.commentbox.io ("the dashboard"), and the embedded commenting plugin ("the plugin"). For each, we will outline the following:
 - What kinds of data we collect, and how.
 - What we use collected data for.
 - What we won't use collected data for.

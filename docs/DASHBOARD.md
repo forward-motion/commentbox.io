@@ -2,7 +2,7 @@
 
 ### Signing Up
 
-You can sign up to create your own CommentBox.io projects via the dashboard at [https://dashboard.commentbox.io]. You can create an unlimited number of projects, each with their own pricing plans.
+You can sign up to create your own CommentBox.io projects via the dashboard at https://dashboard.commentbox.io. You can create an unlimited number of projects, each with their own pricing plans.
 
 Signing up can be done via social login or by email. All sign ups require email verification.
 

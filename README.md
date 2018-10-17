@@ -136,7 +136,7 @@ commentBox('my-project-id', {
     }
 });
 ```
-Note that `pageLocation` is a `Location` object, which you can read more about here: [https://developer.mozilla.org/en-US/docs/Web/API/Location].
+Note that `pageLocation` is a `Location` object, which you can read more about here: https://developer.mozilla.org/en-US/docs/Web/API/Location.
 
 Another such case is if you are using the URL hash for routing purposes. In this case, you would not want the hash to be replaced with the hash of the box, but you would still want each box to be unique based on its ID. We could accomplish this in many ways, but one such way would be to include the box ID in the query params, instead of the hash:
 
