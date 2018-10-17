@@ -1,5 +1,7 @@
 # commentbox.io
 
+Note that if you are reading this anywhere outside of the website, you might want to visit https://commentbox.io/docs instead. The content is the same as below, but in a much nicer, prettier layout.
+
 ## Installation
 
 ```bash
@@ -10,7 +12,7 @@ or
 <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
 ```
 
-## Usage
+## Embed Usage
 
 In your HTML, place an empty `div` tag with the "commentbox" class:
 ```html
@@ -29,7 +31,7 @@ commentBox('my-project-id');
 
 That's it!
 
-## Advanced Usage
+## Advanced Embed Usage
 
 With its default options, CommentBox.io works well for most use cases, however, there are some cases that require extra customization. This is handled by the optional second argument to the `commentBox` function, which is an options object. Here are its defaults:
 ```js
@@ -163,41 +165,97 @@ commentBox('my-project-id', {
 ```
 Note that this event may fire multiple times.
 
+## Plugin Usage
 
-## Dashboard
+### Signing up
+
+Commenting, replying, voting, and flagging require a logged in user. You can sign up directly in the plugin, either by attempting to post a comment, or clicking on the avatar button.
+
+Signing up can be done via social login or by email. Email sign ups require email verification.
+
+### Commenting
+
+The plugin supports limited (but compliant) Markdown:
+- italic
+\_text\_ or \*text\* creates _text_
+- bold
+\__text\__ or \**text\** creates __text__
+- italic + bold
+\___text\___ or \***text\*** creates ___text___
+- inline quotes
+\`text\` creates `text`
+- block quotes
+\```
+text
+\``` 
+creates
+```
+text
+```
+- code (with language-specific styles)
+\```js
+const text = 'text';
+\```
+creates
+```js
+const text = 'text';
+```
+
+#### Limits
+- At this time, links are not automatically hyperlinked. This may change in the future.
+- Comments may be up to 16,384 characters in length.
+- Comments are editable for 8 minutes.
+- You may edit a comment up to 9 times.
+
+### Voting
+
+You may upvote comments to show your support for quality content. This will bubble the comment up higher on the page. Similarly, downvoting comments may push comments further down the page.
+
+### Flagging
+
+If you spot spam or otherwise malicious comments, flagging them will alert moderators to it to take further action.
+
+### Moderation
+
+The plugin supports limited moderation, where moderators may directly remove published comments from it. However, the dashboard is necessary to moderate pending comments, as they do not show up in the plugin.
+
+
+## Dashboard Usage
 
 ### Signing Up
 
 You can sign up to create your own CommentBox.io projects via the dashboard at [https://dashboard.commentbox.io]. You can create an unlimited number of projects, each with their own pricing plans.
 
+Signing up can be done via social login or by email. All sign ups require email verification.
+
 ### Pricing
 
-Our pricing is based on the amount of monthly bandwidth used to serve comments, as well as the comment volume (number of comments published) per month. All plans receive a free bandwidth tier of 1GB, which allows you to download about 1,000,000 Tweet-sized comments. Additionally, the personal plan is not charged for comment volume, however your bandwidth costs (over the free tier) are much higher. Also note that there is no limit to the number of comments published on any plan.
+Our pricing is based on the amount of monthly bandwidth used to serve comments, as well as the number of comments published per month. The Personal plan includes a free tier of < 1GB bandwidth and < 1K comments, with no credit card necessary if you stay within the limits. The Standard plan's pricing applies after.
+
+Also note that there is no limit to the number of comments published on any plan.
 
 We offer three plans:
-- **Personal** - best for low-traffic blogs who receive less than 500 comments a month
-    - Bandwidth costs over the free tier: $1 per GB
-    - No charge for comment volume
+- **Personal** - best for low-traffic blogs who receive less than 1,000 comments a month
+    - No charge for less than 1GB bandwidth used per month
+        - If you go past this limit, you will be charged $0.50 per GB
+    - No charge for less than 1,000 comments published per month
+        - If you go past this limit, you will be charged $5 per group of 1,000
     - Limited moderation options
     - No comment searching or filtering
     - No extra moderators
-    - No credit card required (unless you go over the free tier)
-- **Standard** - best for businesses or high-traffic personal blogs
-    - Bandwidth costs over the free tier: $0.50 per GB
-    - $5 for every group of 1,000 comments made
-        - This is tiered, so if you received 0 - 999 comments, you would still be charged $5, as you are within the 1,000 tier.
+    - No credit card required (unless you go over the free limits)
+- **Standard** - best for businesses or high-traffic personal blogs who receive more than 1,000 comments a month
+    - Bandwidth costs: $0.50 per GB
+    - Comment costs: $5 for every group of 1,000 comments published
+        - This is grouped, so if you received 0 - 999 comments, you would still be charged $5, as you are within the 1,000 group.
     - Granular moderation rules are available
     - Searching and filtering are available
     - Extra moderators are available (up to 10)
     - A credit card is required to sign up, due to the minimum monthly comment volume charge.
-- **Professional** - best for high traffic publications who receive 1000+ comments a day
-    - Bandwidth costs over the free tier: $0.25 per GB
-    - $50 for every group of 15,000 comments made
-        - This is tiered, so if you received 0 - 14,999 comments, you would still be charged $50, as you are within the 15,000 tier.
-    - Granular moderation rules are available
-    - Searching and filtering are available
-    - Extra moderators are available (up to 10)
-    - A credit card is required to sign up, due to the minimum monthly comment volume charge.
+- **Professional** - best for high traffic publications who receive 15,000+ comments a month
+    - All the features of the Standard plan, but with lower costs per volume.
+    - Bandwidth costs: $0.25 per GB
+    - Comment costs: $50 for every group of 15,000 comments published
     
 ### Moderation Rules
 
