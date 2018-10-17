@@ -2,7 +2,7 @@
 
 Note that if you are reading this anywhere outside of the website, you might want to visit https://commentbox.io/docs instead. The content is the same as below, but in a much nicer, prettier layout.
 
-## Installation
+## Embed Installation
 
 ```bash
 npm install commentbox.io --save
