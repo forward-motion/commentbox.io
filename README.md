@@ -198,7 +198,9 @@ The plugin supports limited (but compliant) Markdown:
 - block quotes:
 
 \```
+
 text
+
 \``` 
 
 creates
@@ -208,7 +210,9 @@ text
 - code (with language-specific styles):
 
 \```js
+
 const text = 'text';
+
 \```
 
 creates
