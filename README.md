@@ -40,9 +40,10 @@ commentBox('my-project-id', {
     defaultBoxId: 'commentbox', // the default ID to associate to the div
     tlcParam: 'tlc', // used for identifying links to comments on your page
     /**
-     *
+     * Creates a unique URL to each box on your page.
+     * 
      * @param {string} boxId
-     * @param {Location} pageLocation
+     * @param {Location} pageLocation - a copy of the current window.location
      * @returns {string}
      */
     createBoxUrl(boxId, pageLocation) {
@@ -52,7 +53,9 @@ commentBox('my-project-id', {
         return pageLocation.href; // return url string
     },
     /**
-     *
+     * Fires once the plugin loads its comments.
+     * May fire multiple times in its lifetime.
+     * 
      * @param {number} count
      */
     onCommentCount(count) {
