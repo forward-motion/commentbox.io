@@ -179,43 +179,27 @@ Signing up can be done via social login or by email. Email sign ups require emai
 ### Commenting
 
 The plugin supports limited (but compliant) Markdown:
-- italic:
-
+- italic:  
 \_text\_ or \*text\* creates _text_
-
-- bold:
-
+- bold:  
 \__text\__ or \**text\** creates __text__
-
-- italic + bold:
-
+- italic + bold:  
 \___text\___ or \***text\*** creates ___text___
-
-- inline quotes:
-
+- inline quotes:  
 \`text\` creates `text`
-
-- block quotes:
-
-\```
-
-text
-
-\``` 
-
-creates
+- block quotes:  
+\```  
+text  
+\```  
+creates  
 ```
 text
 ```
-- code (with language-specific styles):
-
-\```js
-
-const text = 'text';
-
-\```
-
-creates
+- code (with language-specific styles):  
+\```js  
+const text = 'text';  
+\```  
+creates  
 ```js
 const text = 'text';
 ```
