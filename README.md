@@ -68,7 +68,7 @@ We will explore these options via various use cases:
 
 ### Using a different identifying class
 
-If you're using the "commentbox" class for some other purpose (which we hope you aren't!), you can simply pass in your preferred class as the `className` option.
+If you're using the "commentbox" class for some other purpose, you can simply pass in your preferred class as the `className` option.
 ```html
 <div class="my-box-of-comments"></div>
 ```
@@ -78,7 +78,7 @@ commentBox('my-project-id', { className: 'my-box-of-comments' });
 
 ### Using a different box ID
 
-If you're using the "commentbox" id for some other purpose (which we hope you aren't!), you can simply pass in your preferred id as the `defaultBoxId` option.
+If you're using the "commentbox" id for some other purpose, you can simply pass in your preferred id as the `defaultBoxId` option.
 ```html
 <div class="commentbox"></div>
 ```
@@ -96,7 +96,7 @@ commentBox('my-project-id');
 
 ### Multiple boxes on the same page
 
-In order to support multiple boxes, each with its own set of comments, simply add a unique id to each box:
+In order to support multiple boxes on the same page, each with its own set of comments, simply add a unique id to each box:
 ```html
 <div class="commentbox" id="article"></div>
 <div class="commentbox" id="sidebar"></div>
@@ -113,11 +113,11 @@ commentBox('my-project-id', { tlcParam: 'c_id' });
 
 ### Uniquely identifying boxes on your site
 
-The plugin determines which boxes are unique based on the URL to that box, minus the query parameters. For example, if your page at `https://example.com/my-page` contained a box with all it's default options, the URL to that box would be `https://example.com/my-page#commentbox`. 
+The plugin determines which boxes are unique based on the URL to that box, minus the query parameters. For example, if your page at `https://example.com/my-page` contained a single box with all it's default options, the URL to that box would be `https://example.com/my-page#commentbox`. 
 
 As mentioned above, you can also change the box ID, or have multiple boxes with their own unique IDs, which would generate box URLs using those IDs as the hash instead of "#commentbox".
 
-By default, the plugin ignores query parameters. This is because for most use cases, query parameters are not widely used to generate page content, and are instead used as either tracking mechanisms or to supply extra arguments to the same content. this means that both `https://example.com/my-page` and `https://example.com/my-page?fun=zero` will contain the same box with the same comments, which is desirable.
+By default, the plugin ignores query parameters. This is because for most use cases, query parameters are not widely used to generate page content, and are instead used as either tracking mechanisms or to supply extra arguments to the same content. this means that both `https://example.com/my-page` and `https://example.com/my-page?foo=bar` will contain the same box with the same comments, which is usually desirable.
 
 There are of course cases where this is not desirable, for example if your website content relied on a "page_id" parameter: `https://example.com/pages.php?page_id=5`. In this case, all your pages would have the exact same set of comments!
 
@@ -158,7 +158,7 @@ commentBox('my-project-id', {
 
 ### Displaying comment count outside of the plugin
 
-Some implementations may choose to have a "comments" button that displays the box only when clicked, and may want to show the number of comments available. To get this number, simply pass in the `onCommentCount` option:
+Some implementations may choose to have a "comments" button that displays the box only when clicked, and may want to show the number of comments available before the box is shown. To get this number, simply pass in the `onCommentCount` option:
 ```js
 commentBox('my-project-id', {
     onCommentCount(count) {
@@ -179,26 +179,38 @@ Signing up can be done via social login or by email. Email sign ups require emai
 ### Commenting
 
 The plugin supports limited (but compliant) Markdown:
-- italic
+- italic:
+
 \_text\_ or \*text\* creates _text_
-- bold
+
+- bold:
+
 \__text\__ or \**text\** creates __text__
-- italic + bold
+
+- italic + bold:
+
 \___text\___ or \***text\*** creates ___text___
-- inline quotes
+
+- inline quotes:
+
 \`text\` creates `text`
-- block quotes
+
+- block quotes:
+
 \```
 text
 \``` 
+
 creates
 ```
 text
 ```
-- code (with language-specific styles)
+- code (with language-specific styles):
+
 \```js
 const text = 'text';
 \```
+
 creates
 ```js
 const text = 'text';
