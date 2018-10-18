@@ -8,6 +8,7 @@ module.exports = {
         filename: 'commentBox.min.js',
         library: 'commentBox',
         libraryTarget: 'umd',
+        libraryExport: 'default',
         globalObject: "typeof self !== 'undefined' ? self : this"
     }
 };
