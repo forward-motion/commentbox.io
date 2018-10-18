@@ -7,6 +7,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'commentBox.min.js',
         library: 'commentBox',
-        libraryTarget: 'umd'
+        libraryTarget: 'umd',
+        globalObject: "typeof self !== 'undefined' ? self : this"
     }
 };
