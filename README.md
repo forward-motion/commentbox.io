@@ -29,6 +29,36 @@ commentBox('my-project-id');
 
 That's it!
 
+## Usage in React
+
+Supporting React is pretty simple:
+
+```jsx harmony
+import React from 'react';
+import commentBox from 'commentbox.io';
+
+class PageWithComments extends React.Component {
+    
+    componentDidMount() {
+
+        this.removeCommentBox = commentBox('my-project-id');
+    }
+
+    componentWillUnmount() {
+
+        this.removeCommentBox();
+    }
+    
+    render() {
+        
+        return (
+            <div className="commentbox" />
+        );
+    }
+}
+```
+The principles are the same as in the non-React example, except that you'll want to be sure to call the `commentBox` function in the `componentDidMount` lifecycle event. The `commentBox` function returns a handy function to clean itself up, so you can call this cleanup function when your component unmounts in`componentWillUnmount`.
+
 ## Advanced Usage
 
 With its default options, CommentBox.io works well for most use cases, however, there are some cases that require extra customization. This is handled by the optional second argument to the `commentBox` function, which is an options object. Here are its defaults:
@@ -115,7 +145,7 @@ The plugin determines which boxes are unique based on the URL to that box, minus
 
 As mentioned above, you can also change the box ID, or have multiple boxes with their own unique IDs, which would generate box URLs using those IDs as the hash instead of "#commentbox".
 
-By default, the plugin ignores query parameters. This is because for most use cases, query parameters are not widely used to generate page content, and are instead used as either tracking mechanisms or to supply extra arguments to the same content. this means that both `https://example.com/my-page` and `https://example.com/my-page?foo=bar` will contain the same box with the same comments, which is usually desirable.
+By default, the plugin ignores query parameters. This is because for most use cases, query parameters are not widely used to generate page content, and are instead used as either tracking mechanisms or to supply extra arguments to the same content. This means that both `https://example.com/my-page` and `https://example.com/my-page?foo=bar` will contain the same box with the same comments, which is usually desirable.
 
 There are of course cases where this is not desirable, for example if your website content relied on a "page_id" parameter: `https://example.com/pages.php?page_id=5`. In this case, all your pages would have the exact same set of comments!
 
