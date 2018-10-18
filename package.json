@@ -1,7 +1,7 @@
 {
   "name": "commentbox.io",
-  "version": "0.0.2",
-  "description": "",
+  "version": "0.9.0",
+  "description": "The CommentBox.io JS plugin libary",
   "main": "dist/commentBox.min.js",
   "module": "src/commentBox.js",
   "scripts": {

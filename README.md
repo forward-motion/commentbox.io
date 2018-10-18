@@ -1,5 +1,7 @@
 ## Installation
 
+Before you begin, please create a project in the [CommentBox.io Dashboard](https://dashboard.commentbox.io). Click [here](https://commentbox.io/docs/dashboard) to learn more about the dashboard and how to use it.
+
 ```bash
 npm install commentbox.io --save
 ```
