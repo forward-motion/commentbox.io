@@ -33,7 +33,7 @@ That's it!
 
 Supporting React is pretty simple:
 
-```jsx harmony
+```jsx harmony  
 import React from 'react';
 import commentBox from 'commentbox.io';
 

@@ -137,6 +137,7 @@ export default function commentBox(projectId, passedOptions = defaultOptions) {
 
             } catch(err) {
                 console.error(err);
+                console.log(e);
             }
         }
     };
