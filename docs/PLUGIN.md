@@ -2,9 +2,9 @@
 
 ### Signing up
 
-Commenting, replying, voting, and flagging require a logged in user. You can sign up directly in the plugin, either by attempting to post a comment, or clicking on the avatar button.
+Commenting, replying, voting, etc. require a logged in user. You can sign up directly in the plugin by clicking on the avatar button. If you attempt to perform an action that requires login, the sign up modal will appear.
 
-Signing up can be done via social login or by email. Email sign ups require email verification.
+Signing up can be done via social login or by email.
 
 ### Commenting
 

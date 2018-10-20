@@ -106,7 +106,7 @@ commentBox('my-project-id', { className: 'my-box-of-comments' });
 
 ### Using a different box ID
 
-If you're using the "commentbox" id for some other purpose, you can simply pass in your preferred id as the `defaultBoxId` option.
+If you're using the "commentbox" ID for some other purpose, you can simply pass in your preferred ID as the `defaultBoxId` option.
 ```html
 <div class="commentbox"></div>
 ```
@@ -124,7 +124,7 @@ commentBox('my-project-id');
 
 ### Multiple boxes on the same page
 
-In order to support multiple boxes on the same page, each with its own set of comments, simply add a unique id to each box:
+In order to support multiple boxes on the same page, each with its own set of comments, simply add a unique ID to each box:
 ```html
 <div class="commentbox" id="article"></div>
 <div class="commentbox" id="sidebar"></div>

@@ -8,14 +8,14 @@ Signing up can be done via social login or by email. All sign ups require email 
 
 ### Pricing
 
-Our pricing is based on the amount of monthly bandwidth used to serve comments, as well as the number of comments published per month. The Personal plan includes a free tier of < 1GB bandwidth and < 1K comments, with no credit card necessary if you stay within the limits. The Standard plan's pricing applies after.
+Our pricing is based on the amount of monthly bandwidth used to serve comments, as well as the number of comments published per month. The Personal plan includes a free tier of < 1GB bandwidth and < 1K comments, with no credit card necessary if you stay within the limits. If you do go over the limits, the Standard plan's pricing applies, and you will receive an invoice via email from Stripe, our payment provider.
 
-Also note that there is no limit to the number of comments published on any plan.
+Also note that there is no limit on any plan to the number of comments that can be published.
 
 We offer three plans:
 - **Personal** - best for low-traffic blogs who receive less than 1,000 comments a month
     - No charge for less than 1GB bandwidth used per month
-        - If you go past this limit, you will be charged $0.50 per GB
+        - If you go past this limit, you will be charged $0.55 per GB
     - No charge for less than 1,000 comments published per month
         - If you go past this limit, you will be charged $5 per group of 1,000
     - Limited moderation options
@@ -23,7 +23,7 @@ We offer three plans:
     - No extra moderators
     - No credit card required (unless you go over the free limits)
 - **Standard** - best for businesses or high-traffic personal blogs who receive more than 1,000 comments a month
-    - Bandwidth costs: $0.50 per GB
+    - Bandwidth costs: $0.55 per GB
     - Comment costs: $5 for every group of 1,000 comments published
         - This is grouped, so if you received 0 - 999 comments, you would still be charged $5, as you are within the 1,000 group.
     - Granular moderation rules are available
@@ -38,18 +38,18 @@ We offer three plans:
 ### Moderation Rules
 
 We offer three different kinds of moderation:
-- Manual - all comments must be manually approved
-- Automatic - all comments are automatically approved
-- Granular - all comments are automatically approved, except those that to not pass the enabled filters.
+- **Manual** - all comments must be manually approved
+- **Automatic** - all comments are automatically approved
+- **Granular** - all comments are automatically approved, except those that to not pass the enabled filters.
 
 Granular moderation is often best suited for high volumes of comments, and is only available in the Standard or Professional plans.
 
 Here's the breakdown of the granular filters that you can enable:
-- Comments containing links - if a URL is found in a comment, it will not pass.
-- Comments from authors blocked on other websites - if a user posts a comment on your website, but they were previously blocked on another website, their comment will not pass.
-- Comments from authors with previously removed comments - if a user posts a comment on your website, but you have previously removed on of their comments, their comment will not pass.
-- Comments from anonymous authors - if an anonymous user posts a comment, it will not pass.
-- Comments matching previously removed comments - if a comment has the same content as a previous comment that has been deleted by you, it will not pass.
+- **Comments containing links** - if a URL is found in a comment, it will not pass.
+- **Comments from authors blocked on other websites** - if a user posts a comment on your website, but they were previously blocked on another website, their comment will not pass.
+- **Comments from authors with previously removed comments** - if a user posts a comment on your website, but you have previously removed on of their comments, their comment will not pass.
+- **Comments from anonymous authors** - if an anonymous user posts a comment, it will not pass.
+- **Comments matching previously removed comments** - if a comment has the same content as a previous comment that has been deleted by you, it will not pass.
 
 We plan to expand this list in the near future, so if there's a filter you'd like to see implemented, please let us know.
 
@@ -59,12 +59,12 @@ For users on the Standard or Professional plan, you may add up to 10 moderators.
 
 Once logged in, they will be presented with the option to accept or reject your request. They also have the option to reject and block future requests to join that project.
 
-If they accept, the project will become available in the projects dropdown. They will have limited access to the Setup page, where they will only be able to modify their email preferences. However, they will have full access to the Comments page,
+If they accept, the project will become available in their projects dropdown in the dashboard. They will have limited access to the project's Setup page, where they will only be able to modify their email preferences. However, they will have full access to the Comments page,
 where they can take any action to approve or remove comments. The same is true for moderating directly in the plugin.
 
 ### Webhooks
 
-We offer two ways to implement webhooks: a generic event webhook, or a Slack webhook.
+Webhooks are an excellent way to programmatically respond to events that occur. We offer two ways to implement webhooks: a generic event webhook, or a Slack webhook.
 
 #### Generic Event Webhook
 
@@ -74,7 +74,13 @@ Please note that your endpoint must be able to verify requests sent to it by ins
 
 We will POST a request to your endpoint with a JSON body that includes two parameters: `event` and `data`.
 
-The `event` parameter is a string that can be one of: "comment.pending", "comment.approved", "comment.deleted", "comment.flagged".
+The `event` parameter is a string that can be one of: 
+- `comment.pending`
+- `comment.approved`
+- `comment.deleted`
+- `comment.flagged`
+
+In the future, we may expand this list to include other events such as voting.
 
 The `data` parameter is an object that has the following parameters:
 - `id`: the comment Id
@@ -108,7 +114,7 @@ To moderate a comment in the dashboard, simply select the checkbox to the right 
 - For flagged comments, you can choose to remove the flagged status.
 - For approved comments, you can choose to remove them.
 
-You can also moderate comments within the plugin, albeit only with the ability to remove published comments.
+You can also moderate comments within the plugin, with the ability to remove published comments, block users, and pin comments.
 
 ### Blocking Users
 
