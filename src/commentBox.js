@@ -104,7 +104,7 @@ export default function commentBox(projectId, passedOptions = defaultOptions) {
         const messageLocation = document.createElement('a');
         messageLocation.href= e.origin;
 
-        if (messageLocation.hostname === 'localhost' || (messageLocation.hostname === 'app.commentbox.io' && messageLocation.protocol === 'https:' )) {
+        if (e.data && messageLocation.hostname === 'localhost' || (messageLocation.hostname === 'app.commentbox.io' && messageLocation.protocol === 'https:' )) {
 
             try {
                 const data = JSON.parse(e.data);
