@@ -8,32 +8,32 @@ Signing up can be done via social login or by email. All sign ups require email 
 
 ### Pricing
 
-Our pricing is based on the amount of monthly bandwidth used to serve comments, as well as the number of comments published per month. The Personal plan includes a free tier of < 1GB bandwidth and < 1K comments, with no credit card necessary if you stay within the limits. If you do go over the limits, the Standard plan's pricing applies, and you will receive an invoice via email from Stripe, our payment provider.
+Our pricing is based on the amount of monthly bandwidth used to serve comments, as well as the number of comments published per month. The Personal plan includes a free tier of < 1GB bandwidth and < 100 comments, with no credit card necessary if you stay within the limits. If you do go over the limits, the Standard plan's pricing applies, and you will receive an invoice via email from Stripe, our payment provider.
 
 Also note that there is no limit on any plan to the number of comments that can be published.
 
 We offer three plans:
-- **Personal** - best for low-traffic blogs who receive less than 1,000 comments a month
+- **Personal** - best for low-traffic blogs who receive less than 100 comments a month
     - No charge for less than 1GB bandwidth used per month
         - If you go past this limit, you will be charged $0.55 per GB
-    - No charge for less than 1,000 comments published per month
-        - If you go past this limit, you will be charged $5 per group of 1,000
+    - No charge for less than 100 comments published per month
+        - If you go past this limit, you will be charged $5 per group of 100
     - Limited moderation options
     - No comment searching or filtering
     - No extra moderators
     - No credit card required (unless you go over the free limits)
-- **Standard** - best for businesses or high-traffic personal blogs who receive more than 1,000 comments a month
+- **Standard** - best for businesses or moderate-traffic personal blogs who receive more than 100 comments a month
     - Bandwidth costs: $0.55 per GB
-    - Comment costs: $5 for every group of 1,000 comments published
-        - This is grouped, so if you received 0 - 999 comments, you would still be charged $5, as you are within the 1,000 group.
+    - Comment costs: $5 for every group of 100 comments published
+        - This is grouped, so if you received 0 - 99 comments, you would still be charged $5, as you are within the 100 group.
     - Granular moderation rules are available
     - Searching and filtering are available
     - Extra moderators are available (up to 10)
     - A credit card is required to sign up, due to the minimum monthly comment volume charge.
-- **Professional** - best for high traffic publications who receive 15,000+ comments a month
+- **Professional** - best for high traffic publications who receive 1,000+ comments a month
     - All the features of the Standard plan, but with lower costs per volume.
     - Bandwidth costs: $0.25 per GB
-    - Comment costs: $50 for every group of 15,000 comments published
+    - Comment costs: $30 for every group of 1,000 comments published
     
 ### Moderation Rules
 
