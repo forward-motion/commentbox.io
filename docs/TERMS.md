@@ -2,6 +2,8 @@ Effective date: October 19th, 2018.
 
 This document is publicly stored and versioned on GitHub at https://github.com/forward-motion/commentbox.io/blob/master/docs/TERMS.md.
 
+This document contains portions of the Terms of Services found at https://github.com/Automattic/legalmattic.
+
 ## About Us.
 
 CommentBox.io is a hosted commenting platform. Our platform is comprised of Services that include a website at https://commentbox.io ("The Website"), a dashboard application at https://dashboard.commentbox.io ("The Dashboard"), and an embedded commenting plugin at https://github.com/forward-motion/commentbox.io ("The Plugin").
