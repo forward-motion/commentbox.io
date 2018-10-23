@@ -1,6 +1,6 @@
 {
   "name": "commentbox.io",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "The CommentBox.io embedded plugin libary",
   "keywords": [ "comments", "commentbox", "commenting", "disqus" ],
   "main": "dist/commentBox.min.js",

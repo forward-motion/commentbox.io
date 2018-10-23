@@ -4,6 +4,9 @@ const defaultOptions = {
     className: 'commentbox', // the class of divs to look for
     defaultBoxId: 'commentbox', // the default ID to associate to the div
     tlcParam: 'tlc', // used for identifying links to comments on your page
+    backgroundColor: null, // default transparent
+    textColor: null, // default black
+    subtextColor: null, // default grey
     /**
      * Creates a unique URL to each box on your page.
      *
@@ -38,6 +41,9 @@ export default function commentBox(projectId, passedOptions = defaultOptions) {
         className,
         defaultBoxId,
         tlcParam,
+        backgroundColor,
+        textColor,
+        subtextColor,
         createBoxUrl,
         onCommentCount
     } = Object.keys(defaultOptions).reduce((options, key) => {
@@ -90,7 +96,15 @@ export default function commentBox(projectId, passedOptions = defaultOptions) {
 
         iframeUrl.href = 'https://app.commentbox.io';
         iframeUrl.pathname = projectId;
-        iframeUrl.search = stringify({ id: boxId, url: boxLocation.href, tlc_param: tlcParam , tlc: commentId});
+        iframeUrl.search = stringify({
+            id: boxId,
+            url: boxLocation.href,
+            tlc_param: tlcParam ,
+            tlc: commentId,
+            background_color: backgroundColor,
+            text_color: textColor,
+            subtext_color: subtextColor
+        });
 
         iframe.setAttribute('src', iframeUrl.href);
         iframe.setAttribute('frameborder', '0');

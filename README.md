@@ -67,6 +67,9 @@ commentBox('my-project-id', {
     className: 'commentbox', // the class of divs to look for
     defaultBoxId: 'commentbox', // the default ID to associate to the div
     tlcParam: 'tlc', // used for identifying links to comments on your page
+    backgroundColor: null, // default transparent
+    textColor: null, // default black
+    subtextColor: null, // default grey
     /**
      * Creates a unique URL to each box on your page.
      * 
@@ -195,3 +198,15 @@ commentBox('my-project-id', {
 });
 ```
 Note that this event may fire multiple times.
+
+### Styling the plugin
+
+By default, the plugin's background is transparent, to adapt to your website. Since most websites tend to have light backgrounds, the default color is black. However, you may change these colors with the `backgroundColor`, `textColor`, and `subtextColor` options (the "subtext" is the text below the comment form).
+
+For example, here's a "dark mode" theme:
+```js
+commentBox('my-project-id', {
+    backgroundColor: '#000',
+    textColor: '#fff'
+});
+```
