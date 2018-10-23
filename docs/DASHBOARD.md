@@ -131,14 +131,6 @@ You or your moderators can block users either in the dashboard or within the plu
 
 You may change your credit card details either from the Account modal, or in a project's setup page. Note that there can only be one payment method established for a user, which is applied to all projects created by that user, so setting a new payment method applies to all existing projects as well.
 
-### Deleting a Project
-
-You may delete an existing project via the "danger zone" link at the bottom of the project's Setup page. Note that this removes all existing project data, including comments.
-
-### Deleting Your Account
-
-You may delete your account at any time via the "danger zone" in the Account modal. Note that this removes all your projects' data, including comments.
-
 ### Exporting Comments
 
 You may export all published comments from the Comments page of a project. The comments are organized by the unique comment boxes from where they originated, and are saved in a JSON file for each box.
@@ -146,3 +138,11 @@ You may export all published comments from the Comments page of a project. The c
 Each file is a JSON object that contains a `data` and `sig` property. The `data` property is an array of comments, while `sig` is a signature unique to the comments in the file as well as their versions.
 
 You can download all files as a single zip file, or individually by selecting the appropriate option in the menu.
+
+### Deleting a Project
+
+You may delete an existing project via the "danger zone" link at the bottom of the project's Setup page. Note that this removes all existing project data, including comments.
+
+### Deleting Your Account
+
+You may delete your account at any time via the "danger zone" in the Account modal. Note that this removes all your projects' data, including comments.
