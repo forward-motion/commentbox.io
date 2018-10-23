@@ -138,3 +138,11 @@ You may delete an existing project via the "danger zone" link at the bottom of t
 ### Deleting Your Account
 
 You may delete your account at any time via the "danger zone" in the Account modal. Note that this removes all your projects' data, including comments.
+
+### Exporting Comments
+
+You may export all published comments from the Comments page of a project. The comments are organized by the unique comment boxes from where they originated, and are saved in a JSON file for each box.
+
+Each file is a JSON object that contains a `data` and `sig` property. The `data` property is an array of comments, while `sig` is a signature unique to the comments in the file as well as their versions.
+
+You can download all files as a single zip file, or individually by selecting the appropriate option in the menu.
