@@ -23,17 +23,24 @@ We offer three plans:
     - No extra moderators
     - No credit card required (unless you go over the free limits)
 - **Standard** - best for businesses or moderate-traffic personal blogs who receive more than 100 comments a month
-    - Bandwidth costs: $0.55 per GB
-    - Comment costs: $5 for every group of 100 comments published
-        - This is grouped, so if you received 0 - 99 comments, you would still be charged $5, as you are within the 100 group.
+    - Starting at: $5 per month
+        - Your monthly bill will be at least $5, regardless of usage.
+    - Monthly Bandwidth: $0.55 per GB
+        - Complete GB only. You will not be charged for partial values.
+    - Monthly Comments Published: $5 per 100 comments published
+        - Complete groups only. You will not be charged for partial groups.
     - Granular moderation rules are available
     - Searching and filtering are available
     - Extra moderators are available (up to 10)
     - A credit card is required to sign up, due to the minimum monthly comment volume charge.
 - **Professional** - best for high traffic publications who receive 1,000+ comments a month
     - All the features of the Standard plan, but with lower costs per volume.
-    - Bandwidth costs: $0.25 per GB
-    - Comment costs: $30 for every group of 1,000 comments published
+    - Starting at: $30
+        - Your monthly bill will be at least $30, regardless of usage.
+    - Monthly Bandwidth: $0.25 per GB
+        - Complete GB only. You will not be charged for partial values.
+    - Monthly Comments Published: $30 for every group of 1,000 comments published
+        - Complete groups only. You will not be charged for partial groups.
     
 ### Moderation Rules
 
