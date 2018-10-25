@@ -109,6 +109,7 @@ export default function commentBox(projectId, passedOptions = defaultOptions) {
         iframe.setAttribute('src', iframeUrl.href);
         iframe.setAttribute('frameborder', '0');
         iframe.setAttribute('scrolling', 'no');
+        iframe.setAttribute('style', 'width: 100%');
         box.appendChild(iframe);
         box.setAttribute('data-loaded', 'true');
     }
