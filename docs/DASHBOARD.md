@@ -23,11 +23,11 @@ We offer two plans:
     - 2 months free with the yearly plan
 
 Additionally we offer a **Moderation Plus** optional add-on, which unlocks extra moderation features.
-    - $20 per month per group of 5K comments
-        - $20 is the minimum charge, even if you do not reach 5K comments
-    - Granular moderation filters
-    - Search and filtering capability
-    - Up to nine extra moderators
+- $20 per month per group of 5K comments
+    - $20 is the minimum charge, even if you do not reach 5K comments
+- Granular moderation filters
+- Search and filtering capability
+- Up to nine extra moderators
     
 ### Moderation Rules
 
