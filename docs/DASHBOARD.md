@@ -8,39 +8,26 @@ Signing up can be done via social login or by email. All sign ups require email 
 
 ### Pricing
 
-Our pricing is based on the amount of monthly bandwidth used to serve comments, as well as the number of comments published per month. The Personal plan includes a free tier of < 1GB bandwidth and < 100 comments, with no credit card necessary if you stay within the limits. If you do go over the limits, the Standard plan's pricing applies, and you will receive an invoice via email from Stripe, our payment provider.
+We offer two plans:
+- **Personal** - best for low-traffic sites that receive less than 100 comments a month
+    - 100 comments per month
+    - Unlimited page views
+    - Basic moderation tools
+    - $15 after comment limit
+    - No credit card required (we'll only bill you if you go over your limits)
+- **Professional** - best for high-traffic sites who receive more than 100 comments a month
+    - $10 per month or $100 per year
+    - Unlimited comments per month
+    - Unlimited page views
+    - Basic moderation tools
+    - 2 months free with the yearly plan
 
-Also note that there is no limit on any plan to the number of comments that can be published.
-
-We offer three plans:
-- **Personal** - best for low-traffic blogs who receive less than 100 comments a month
-    - No charge for less than 1GB bandwidth used per month
-        - If you go past this limit, you will be charged $0.55 per GB
-    - No charge for less than 100 comments published per month
-        - If you go past this limit, you will be charged $5 per group of 100
-    - Limited moderation options
-    - No comment searching or filtering
-    - No extra moderators
-    - No credit card required (unless you go over the free limits)
-- **Standard** - best for businesses or moderate-traffic personal blogs who receive more than 100 comments a month
-    - Starting at: $5 per month
-        - Your monthly bill will be at least $5, regardless of usage.
-    - Monthly Bandwidth: $0.55 per GB
-        - Complete GB only. You will not be charged for partial values.
-    - Monthly Comments Published: $5 per 100 comments published
-        - Complete groups only. You will not be charged for partial groups.
-    - Granular moderation rules are available
-    - Searching and filtering are available
-    - Extra moderators are available (up to 10)
-    - A credit card is required to sign up, due to the minimum monthly comment volume charge.
-- **Professional** - best for high traffic publications who receive 1,000+ comments a month
-    - All the features of the Standard plan, but with lower costs per volume.
-    - Starting at: $30
-        - Your monthly bill will be at least $30, regardless of usage.
-    - Monthly Bandwidth: $0.25 per GB
-        - Complete GB only. You will not be charged for partial values.
-    - Monthly Comments Published: $30 for every group of 1,000 comments published
-        - Complete groups only. You will not be charged for partial groups.
+Additionally we offer a **Moderation Plus** optional add-on, which unlocks extra moderation features.
+    - $20 per month per group of 5K comments
+        - $20 is the minimum charge, even if you do not reach 5K comments
+    - Granular moderation filters
+    - Search and filtering capability
+    - Up to nine extra moderators
     
 ### Moderation Rules
 
@@ -49,7 +36,7 @@ We offer three different kinds of moderation:
 - **Automatic** - all comments are automatically approved
 - **Granular** - all comments are automatically approved, except those that to not pass the enabled filters.
 
-Granular moderation is often best suited for high volumes of comments, and is only available in the Standard or Professional plans.
+Granular moderation is often best suited for high volumes of comments, and is only available with the Moderation Plus add-on.
 
 Here's the breakdown of the granular filters that you can enable:
 - **Comments containing links** - if a URL is found in a comment, it will not pass.
@@ -62,7 +49,7 @@ We plan to expand this list in the near future, so if there's a filter you'd lik
 
 ### Extra Moderators
 
-For users on the Standard or Professional plan, you may add up to 10 moderators. To do so, simply add their email addresses to the corresponding section during project setup. Note that we will not notify these users via email, in order to prevent abuse or spam. However, they will be notifed once they log in to the dashboard using the email that you've specified.
+For users with the Moderation Plus add-on, you may add up to 9 extra moderators. To do so, simply add their email addresses to the corresponding section during project setup. Note that we will not notify these users via email, in order to prevent abuse or spam. However, they will be notifed once they log in to the dashboard using the email that you've specified.
 
 Once logged in, they will be presented with the option to accept or reject your request. They also have the option to reject and block future requests to join that project.
 
