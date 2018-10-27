@@ -9,18 +9,18 @@ Signing up can be done via social login or by email. All sign ups require email 
 ### Pricing
 
 We offer two plans:
-- **Personal** - best for low-traffic sites that receive less than 100 comments a month
-    - 100 comments per month
+
+- **Personal** - best for low-traffic sites
+    - 100 comments per month for free ($15 after comment limit)
     - Unlimited page views
     - Basic moderation tools
-    - $15 after comment limit
     - No credit card required (we'll only bill you if you go over your limits)
+    
 - **Professional** - best for high-traffic sites who receive more than 100 comments a month
-    - $10 per month or $100 per year
+    - $10 per month, or $100 per year (2 months free with the yearly plan)
     - Unlimited comments per month
     - Unlimited page views
     - Basic moderation tools
-    - 2 months free with the yearly plan
 
 Additionally we offer a **Moderation Plus** optional add-on, which unlocks extra moderation features.
 - $20 per month per group of 5K comments
