@@ -45,3 +45,7 @@ The "subtext" is the text below the comment form. You may change the background 
 ### Comment Count Selector
 
 If you'd like to show the comment count elsewhere on your page, you can provide a CSS selector here, and the plugin will update the text contents of that element with the comment count.
+
+## Importing Existing Wordpress Comments
+
+Importing existing Wordpress comments is not supported at this time, but it's in the works and will be available very soon. Stay tuned!
