@@ -2,15 +2,15 @@
 
 Before you begin, please create a project in the [CommentBox.io Dashboard](https://dashboard.commentbox.io). Click [here](https://commentbox.io/docs/dashboard) to learn more about the dashboard and how to use it.
 
-1. Go to **"Plugins"** > **"Add Plugin"**
+1. In your Wordpress admin panel, to **Plugins** > **Add Plugin**
 2. Search for **"CommentBox.io"**
-3. Click **"Install Now"**
+3. Click **Install Now**
 4. Activate the plugin
-5. On the sidebar, navigate to the new CommentBox.io option to open the Wordpress settings page.
+5. On the sidebar, navigate to the new **CommentBox.io** option to open the Wordpress settings page.
 6. Go to [the CommentBox.io dashboard](https://dashboard.commentbox.io/) to sign up and create a project.
 7. Once the project is created, enter the project ID in the appropriate field in the Wordpress settings page.
 8. Optionally customize the plugin, which you can read about below.
-9. Click **"Save"**, and the plugin will now be available wherever the original Wordpress comment box previously appeared.
+9. Click **Save**, and the plugin will now be available wherever the original Wordpress comment box previously appeared.
 
 ## Customization
 
@@ -32,15 +32,15 @@ If you are already using "tlc", or simply wish to rename it to something else, y
 
 ### Background Color
 
-The plugin's background is transparent, to adapt to your website. You may change this color to any valid CSS color, e.g. #000 or rgb(0, 0, 0).
+The plugin's background is transparent, to adapt to your website. You may change this color to any valid CSS color, e.g. `#000` or `rgb(0, 0, 0)`.
 
 ### Text Color
 
-Since most websites tend to have light backgrounds, the default text color is black. You may change the this color to any valid CSS color, e.g. #fff or rgb(255, 255, 255).
+Since most websites tend to have light backgrounds, the default text color is black. You may change the this color to any valid CSS color, e.g. `#fff` or `rgb(255, 255, 255)`.
 
 ### Subtext Color
 
-The "subtext" is the text below the comment form. You may change the background color to any valid CSS color, e.g. #fff or rgb(255, 255, 255).
+The "subtext" is the text below the comment form. You may change the background color to any valid CSS color, e.g. `#fff` or `rgb(255, 255, 255)`.
 
 ### Comment Count Selector
 
