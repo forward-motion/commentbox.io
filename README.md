@@ -1,8 +1,9 @@
 ## Installation
 
+If you're looking for plugin installation for Wordpress, see [here](https://commentbox.io/docs/wordpress).
+
 Before you begin, please create a project in the [CommentBox.io Dashboard](https://dashboard.commentbox.io). Click [here](https://commentbox.io/docs/dashboard) to learn more about the dashboard and how to use it.
 
-If you're looking for plugin installation for Wordpress, see [here](https://commentbox.io/docs/wordpress).
 
 ```bash
 npm install commentbox.io --save
