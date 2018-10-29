@@ -2,6 +2,8 @@
 
 Before you begin, please create a project in the [CommentBox.io Dashboard](https://dashboard.commentbox.io). Click [here](https://commentbox.io/docs/dashboard) to learn more about the dashboard and how to use it.
 
+If you're looking for plugin installation for Wordpress, see [here](https://commentbox.io/docs/wordpress).
+
 ```bash
 npm install commentbox.io --save
 ```
@@ -201,7 +203,7 @@ Note that this event may fire multiple times.
 
 ### Styling the plugin
 
-By default, the plugin's background is transparent, to adapt to your website. Since most websites tend to have light backgrounds, the default color is black. However, you may change these colors with the `backgroundColor`, `textColor`, and `subtextColor` options (the "subtext" is the text below the comment form).
+By default, the plugin's background is transparent, to adapt to your website. Since most websites tend to have light backgrounds, the default text color is black. However, you may change these colors with the `backgroundColor`, `textColor`, and `subtextColor` options (the "subtext" is the text below the comment form).
 
 For example, here's a "dark mode" theme:
 ```js
