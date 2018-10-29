@@ -1,5 +1,7 @@
 ## Installation
 
+This documentation is for the base JavaScript plugin. If you're looking for the Wordpress plugin installation, see [here](https://commentbox.io/docs/wordpress).
+
 Before you begin, please create a project in the [CommentBox.io Dashboard](https://dashboard.commentbox.io). Click [here](https://commentbox.io/docs/dashboard) to learn more about the dashboard and how to use it.
 
 
