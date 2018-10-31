@@ -138,7 +138,7 @@ To import Wordpress comments:
 Some items to be aware of:
 - We won't duplicate comments, even if you try uploading the same file twice. However, if you upload the same file twice and specified a different box ID each time, the comments will be uploaded twice, since they will be considered to have been associated with two different comment boxes on your site.
 - If you are on the Personal plan, importing comments counts against your free quota.
-    - ** This means if you are on the Personal plan and you import over 100 comments, you will be charged $15 for that month.**
+    - **This means if you are on the Personal plan and you import over 100 comments, you will be charged $15 for that month.**
 
 
 ### Exporting Comments
