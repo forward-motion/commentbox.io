@@ -119,6 +119,28 @@ You or your moderators can block users either in the dashboard or within the plu
 
 You may change your credit card details either from the Account modal, or in a project's setup page. Note that there can only be one payment method established for a user, which is applied to all projects created by that user, so setting a new payment method applies to all existing projects as well.
 
+### Importing Comments
+
+Currently we provide support for importing comments from Wordpress only, however we will be expanding this functionality to include importing Disqus comments as well.
+
+To import Wordpress comments:
+- Navigate to your Wordpress Admin Panel > Plugins and deactivate all plugins.
+- Navigate to your Wordpress Admin Panel > Tools > Export.
+- Under "Choose what to export", select "posts".
+    - If you have a lot of posts and comments, we recommend breaking up the download into several smaller files by specifying a start and end date.
+- Click on "Download Export File".
+- Navigate to the CommentBox.io dashboard, to the project you wish to import your comments to.
+- Navigate to Comments > Import.
+- In the file input, select the file you exported from Wordpress.
+    - For most cases, you won't need to specify a box ID. If you are using a custom box ID with the CommentBox.io plugin, enter it here. **Only do this if you know what you are doing and why**.
+- Click on "Import from Wordpress".
+
+Some items to be aware of:
+- We won't duplicate comments, even if you try uploading the same file twice. However, if you upload the same file twice and specified a different box ID each time, the comments will be uploaded twice, since they will be considered to have been associated with two different comment boxes on your site.
+- If you are on the Personal plan, importing comments counts against your free quota.
+    - ** This means if you are on the Personal plan and you import over 100 comments, you will be charged $15 for that month.**
+
+
 ### Exporting Comments
 
 You may export all published comments from the Comments page of a project. The comments are organized by the unique comment boxes from where they originated, and are saved in a JSON file for each box.
