@@ -48,4 +48,4 @@ If you'd like to show the comment count elsewhere on your page, you can provide 
 
 ## Importing Existing Wordpress Comments
 
-Importing existing Wordpress comments is not supported at this time, but it's in the works and will be available very soon. Stay tuned!
+We provide you with the ability to import Wordpress comments into CommentBox.io, which you can read about [here](https://commentbox.io/docs/dashboard#importing-comments). However, we do not link Wordpress users to CommentBox.io users.
