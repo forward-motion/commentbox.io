@@ -121,8 +121,14 @@ You may change your credit card details either from the Account modal, or in a p
 
 ### Importing Comments
 
-Currently we provide support for importing comments from Wordpress only, however we will be expanding this functionality to include importing Disqus comments as well.
+We support importing comments from both Wordpress and Disqus.
 
+Some items to be aware of:
+- We won't duplicate comments, even if you try uploading the same file twice. However, if you upload the same file twice and specified a different box ID each time, the comments will be uploaded twice, since they will be considered to have been associated with two different comment boxes on your site.
+- If you are on the Personal plan, importing comments counts against your free quota.
+    - **This means if you are on the Personal plan and you import over 100 comments, you will be charged $15 for that month.**
+
+#### Wordpress
 To import Wordpress comments:
 - Navigate to your Wordpress Admin Panel > Plugins and deactivate all plugins.
 - Navigate to your Wordpress Admin Panel > Tools > Export.
@@ -135,11 +141,16 @@ To import Wordpress comments:
     - For most cases, you won't need to specify a box ID. If you are using a custom box ID with the CommentBox.io plugin, enter it here. **Only do this if you know what you are doing and why**.
 - Click on "Import from Wordpress".
 
-Some items to be aware of:
-- We won't duplicate comments, even if you try uploading the same file twice. However, if you upload the same file twice and specified a different box ID each time, the comments will be uploaded twice, since they will be considered to have been associated with two different comment boxes on your site.
-- If you are on the Personal plan, importing comments counts against your free quota.
-    - **This means if you are on the Personal plan and you import over 100 comments, you will be charged $15 for that month.**
-
+#### Disqus
+To import Wordpress comments:
+- Navigate to your Disqus Admin Panel > Community > Export.
+- Click on "Export Comments".
+- You will receive the exported file via email.
+- Navigate to the CommentBox.io dashboard, to the project you wish to import your comments to.
+- Navigate to Comments > Import.
+- In the file input, select the file you exported from Wordpress.
+    - For most cases, you won't need to specify a box ID. If you are using a custom box ID with the CommentBox.io plugin, enter it here. **Only do this if you know what you are doing and why**.
+- Click on "Import from Disqus".
 
 ### Exporting Comments
 
