@@ -73,6 +73,7 @@ commentBox('my-project-id', {
     backgroundColor: null, // default transparent
     textColor: null, // default black
     subtextColor: null, // default grey
+    singleSignOn: null, // enables Single Sign-On (for Professional plans only)
     /**
      * Creates a unique URL to each box on your page.
      * 
@@ -99,6 +100,18 @@ commentBox('my-project-id', {
 ```
 
 We will explore these options via various use cases:
+
+### Styling the plugin
+
+By default, the plugin's background is transparent, to adapt to your website. Since most websites tend to have light backgrounds, the default text color is black. However, you may change these colors with the `backgroundColor`, `textColor`, and `subtextColor` options (the "subtext" is the text below the comment form).
+
+For example, here's a "dark mode" theme:
+```js
+commentBox('my-project-id', {
+    backgroundColor: '#000',
+    textColor: '#fff'
+});
+```
 
 ### Using a different identifying class
 
@@ -145,6 +158,18 @@ If you are already using "tlc", or simply wish to rename it to something else, y
 commentBox('my-project-id', { tlcParam: 'c_id' });
 ```
 
+### Displaying comment count outside of the plugin
+
+Some implementations may choose to have a "comments" button that displays the box only when clicked, and may want to show the number of comments available before the box is shown. To get this number, simply pass in the `onCommentCount` option:
+```js
+commentBox('my-project-id', {
+    onCommentCount(count) {
+        // use the count however you wish.
+    }
+});
+```
+Note that this event may fire multiple times.
+
 ### Uniquely identifying boxes on your site
 
 The plugin determines which boxes are unique based on the URL to that box, minus the query parameters. For example, if your page at `https://example.com/my-page` contained a single box with all it's default options, the URL to that box would be `https://example.com/my-page#commentbox`. 
@@ -190,26 +215,137 @@ commentBox('my-project-id', {
 });
 ```
 
-### Displaying comment count outside of the plugin
+### Enabling Single Sign-On
 
-Some implementations may choose to have a "comments" button that displays the box only when clicked, and may want to show the number of comments available before the box is shown. To get this number, simply pass in the `onCommentCount` option:
+This option is available to projects on the Professional plan only.
+
+Single Sign-On lets your users sign in using your site's own native authentication system. It's flexible and powerful enough to automatically utilize existing user sessions, creating a zero-friction method for your website members to leave comments.
+
+To enable, specify an object as the  `singleSignOn` option. Here it is with its defaults:
 ```js
 commentBox('my-project-id', {
-    onCommentCount(count) {
-        // use the count however you wish.
+    singleSignOn: {
+        buttonText: 'Single Sign-On', // The text to show on the sign in button.
+        buttonIcon: '', // The icon to show on the sign in button. Must be an absolute URL.
+        buttonColor: '', // The sign in button's color. Default is black.
+        autoSignOn: false, // Attempts to automatically log the user into CommentBox.io with custom auth.
+        onSignOn(onComplete, onError) {
+            // pass in the signed user payload to onComplete.
+        },
+        onSignOut() {
+            // optionally log the user out of your website's native auth system.
+        }
     }
 });
 ```
-Note that this event may fire multiple times.
+We will go over each option below, but at minimum you must specify an `onSignOn` function.
 
-### Styling the plugin
+#### Styling the sign in button
 
-By default, the plugin's background is transparent, to adapt to your website. Since most websites tend to have light backgrounds, the default text color is black. However, you may change these colors with the `backgroundColor`, `textColor`, and `subtextColor` options (the "subtext" is the text below the comment form).
+If the user navigates to the sign in screen in the plugin with Single Sign-On enabled, they will encounter an additional button that allows them to use their existing user account from your website to sign in. The `buttonText`, `buttonIcon`,and `buttonColor` options deal with styling this button.
 
-For example, here's a "dark mode" theme:
+#### `autoSignOn`
+
+This option allows the plugin to attempt to automatically log the user in with their existing user account from your website to sign in. Note that this is only effective if they are not already signed in to the plugin.
+
+With `autoSignOn` set to false (which is the default), plugin users may sign in with their existing user account from your website by navigating to the sign in screen in the plugin.
+
+Here are a few scenarios to illustrate how it works when `autoSignOn` is set to true:
+
+##### Scenario 1
+Website login status: not logged in.
+Plugin login status: not logged in.
+
+In the plugin, the user will not be automatically logged in, but they will have the option to sign in with Single Sign-On from the plugin's sign in screen (in addition to the usual Social and email options).
+
+##### Scenario 2
+Website login status: logged in.
+Plugin login status: not logged in.
+
+In the plugin, the user will be automatically logged in using the user's data from your website.
+
+##### Scenario 3
+Website login status: logged in OR not logged in.
+Plugin login status: logged in.
+
+In the plugin, the user will **not** be automatically logged in using the user's data from your website, since they are already logged in (irrespective to how they chose to log in).
+
+#### `onSignOn`
+The `onSignOn` function is how the plugin communicates to your website that a user wants to use their auth data from your website. Your code must then send this data back as a signed [JSON Web Token](https://jwt.io/introduction/) (JWT).
+
+You must write **server-side** code to perform the signing, which uses a **secret** key found in your project's setup screen in the CommentBox.io dashboard. DO NOT expose your secret key in any client-side code. Whenever `onSignOn` is called, you must then call your server-side code to return the signed user data to the plugin using the `onComplete` callback. If an error occurs instead, pass an `Error` object to the `onError` callback.
+
+##### Signing user data
+To perform the signing, you must create a payload as described below, and sign it with your secret, using the `HS256` algorithm. Once you have the JWT string, pass it to the `onComplete` callback.
+
+Here's an example payload with all relevant claims:
+```json
+{
+"sub": 1, // integer or string representing your user's unique ID
+"email": "jane@example.com", // must be unique as well
+"name": "Jane Doe", // required, not empty
+"picture": "", // an absolute URL, or empty
+"iat": 1541289621, // date issued as a unix timestamp (in seconds)
+"exp": 1541289921 // token expiry date, must be no more than 10 minutes after iat
+}
+```
+Here's a Node.js example of signing the token:
 ```js
-commentBox('my-project-id', {
-    backgroundColor: '#000',
-    textColor: '#fff'
+const express = require('express');
+const jwt = require('jsonwebtoken');
+const app = express();
+
+app.get('/sso', (req, res) => {
+    
+    const now = Math.round(Date.now() / 1000); // now in seconds
+    const payload = {
+       sub: 1, // normally you'd get the user ID from your own cookies or bearer token.
+       email: 'shaun@example.com',
+       name: 'Shaun', 
+       picture: '',
+       exp: now + (60 * 5), // expires 5 minutes from now
+       iat: now
+    };
+    const secret = 'this-is-you-secret-from-the-dashboard';
+    const token = jwt.sign(payload, secret, { algorithm: 'HS256'});
+    
+    res.send(token);
 });
 ```
+Then, in your client-side code:
+```js
+commentBox('my-project-id', {
+    singleSignOn: {
+        onSignOn(onComplete, onError) {
+            
+            fetch('/sso').then(response => {
+                
+                if(response.ok) {
+                    return response.text();
+                }
+                throw new Error('Could not sign in.');
+            })
+            .then(onComplete)
+            .catch(onError);
+        }
+    }
+});
+```
+
+A few notes on the payload:
+- Notice that these tokens are **short-lived**. The maximum lifespan of an acceptable token is 10 minutes.
+- The email must be unique to the user. If you have users with different IDs and the same email, only the account that logs in first will be accepted. The other accounts will fail silently (at this time).
+
+#### `onSignOut`
+This function gets called whenever the user is logged in via Single Sign-On and logs out in the plugin. You may use this callback to log the user out of your website as well, but it's not required. It depends on the experience you're aiming for. One common use case is if you wish to make the comment box only accessible to users who are logged in to your website. When they log out, you can use `onSignOut` to hide the comment box again.
+
+
+
+
+
+
+
+
+
+
+

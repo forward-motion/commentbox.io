@@ -7,6 +7,7 @@ const defaultOptions = {
     backgroundColor: null, // default transparent
     textColor: null, // default black
     subtextColor: null, // default grey
+    singleSignOn: null,
     /**
      * Creates a unique URL to each box on your page.
      *
@@ -28,6 +29,20 @@ const defaultOptions = {
      */
     onCommentCount(count) {
 
+    },
+    testMode: false
+};
+
+const defaultSingleSignOn = {
+    buttonText: 'Single Sign-On',
+    buttonIcon: '',
+    buttonColor: '',
+    autoSignOn: false,
+    onSignOn(onComplete, onError) {
+
+    },
+    onSignOut() {
+
     }
 };
 
@@ -45,7 +60,8 @@ export default function commentBox(projectId, passedOptions = defaultOptions) {
         textColor,
         subtextColor,
         createBoxUrl,
-        onCommentCount
+        onCommentCount,
+        testMode
     } = Object.keys(defaultOptions).reduce((options, key) => {
 
         options[key] = (passedOptions && passedOptions[key]) ? passedOptions[key] : defaultOptions[key];
@@ -54,11 +70,25 @@ export default function commentBox(projectId, passedOptions = defaultOptions) {
 
     }, {});
 
+    let singleSignOn = passedOptions.singleSignOn || null;
+    if (singleSignOn) {
+        singleSignOn = Object.keys(defaultSingleSignOn).reduce((options, key) => {
+
+            options[key] = singleSignOn[key] || defaultSingleSignOn[key];
+
+            return options;
+
+        }, {});
+    }
+
     const pageLocation = document.createElement('a');
     pageLocation.href = window.location.href;
     const boxes = document.getElementsByClassName(className);
     const numBoxes = boxes.length;
     const boxIds = {};
+    const appDomain = testMode ? 'localhost:8000' : 'app.commentbox.io';
+    const appProtocol = testMode ? 'http:' : 'https:';
+    const appUrl = `${appProtocol}//${appDomain}`;
 
     for (let i = 0; i < numBoxes; i++) {
 
@@ -93,25 +123,69 @@ export default function commentBox(projectId, passedOptions = defaultOptions) {
 
         const iframe = document.createElement('iframe');
         const iframeUrl = document.createElement('a');
-
-        iframeUrl.href = 'https://app.commentbox.io';
-        iframeUrl.pathname = projectId;
-        iframeUrl.search = stringify({
+        const iframeParams = {
             id: boxId,
             url: boxLocation.href,
             tlc_param: tlcParam ,
             tlc: commentId,
             background_color: backgroundColor,
             text_color: textColor,
-            subtext_color: subtextColor
-        });
+            subtext_color: subtextColor,
+        };
+        const makeIframe = () => {
 
-        iframe.setAttribute('src', iframeUrl.href);
-        iframe.setAttribute('frameborder', '0');
-        iframe.setAttribute('scrolling', 'no');
-        iframe.setAttribute('style', 'width: 100%');
-        box.appendChild(iframe);
-        box.setAttribute('data-loaded', 'true');
+            iframeUrl.href = appUrl;
+            iframeUrl.pathname = projectId;
+            iframeUrl.search = stringify(iframeParams);
+
+            iframe.setAttribute('src', iframeUrl.href);
+            iframe.setAttribute('frameborder', '0');
+            iframe.setAttribute('scrolling', 'no');
+            iframe.setAttribute('style', 'width: 100%');
+            box.appendChild(iframe);
+            box.setAttribute('data-loaded', 'true');
+        };
+
+        if (singleSignOn) {
+            Object.assign(iframeParams, {
+                sso: '1',
+                sso_text: singleSignOn.buttonText,
+                sso_icon: singleSignOn.buttonIcon,
+                sso_color: singleSignOn.buttonColor,
+            });
+
+            if (singleSignOn.autoSignOn) {
+                let called = false;
+
+                singleSignOn.onSignOn(userPayload => {
+
+                    if (called) {
+                        throw new Error('Callback already called.');
+                    }
+                    called = true;
+
+                    if (userPayload) {
+                        iframeParams.sso_user_payload = userPayload;
+                    }
+
+                    makeIframe();
+
+                }, err => {
+
+                    if (called) {
+                        throw new Error('Callback already called.');
+                    }
+                    called = true;
+
+                    makeIframe();
+                });
+            } else {
+                makeIframe();
+            }
+
+        } else {
+            makeIframe();
+        }
     }
 
     const receiveMessage = function receiveMessage(e) {
@@ -119,7 +193,7 @@ export default function commentBox(projectId, passedOptions = defaultOptions) {
         const messageLocation = document.createElement('a');
         messageLocation.href= e.origin;
 
-        if (e.data && messageLocation.hostname === 'localhost' || (messageLocation.hostname === 'app.commentbox.io' && messageLocation.protocol === 'https:' )) {
+        if (e.data && messageLocation.hostname === appDomain || messageLocation.protocol === appProtocol) {
 
             try {
                 const data = JSON.parse(e.data);
@@ -141,6 +215,45 @@ export default function commentBox(projectId, passedOptions = defaultOptions) {
                     case 'tlc':
                         iFrame.setAttribute('data-tlc', payload);
                         break;
+                    case 'sso-user-payload':
+                        if (singleSignOn) {
+
+                            let called = false;
+
+                            singleSignOn.onSignOn(userPayload => {
+
+                                if (called) {
+                                    throw new Error('Callback already called.');
+                                }
+                                called = true;
+                                const message = JSON.stringify(userPayload ? {
+                                    event: 'sso-user-payload',
+                                    payload: userPayload
+                                } : {
+                                    event: 'sso-user-payload-error',
+                                    payload: 'Could not sign in.'
+                                });
+                                e.source.postMessage(message, e.origin);
+
+                            }, err => {
+
+                                if (called) {
+                                    throw new Error('Callback already called.');
+                                }
+                                called = true;
+                                const message = JSON.stringify({
+                                    event: 'sso-user-payload-error',
+                                    payload: err.message
+                                });
+                                e.source.postMessage(message, e.origin);
+                            });
+                        }
+                        break;
+                    case 'sso-logout':
+                        if (singleSignOn) {
+                            singleSignOn.onSignOut();
+                        }
+                        break;
                 }
 
                 if (iFrame.getAttribute('data-comments-loaded') && iFrame.getAttribute('data-tlc') && !iFrame.getAttribute('data-tlc-scrolled')) {
@@ -151,8 +264,7 @@ export default function commentBox(projectId, passedOptions = defaultOptions) {
                 }
 
             } catch(err) {
-                console.error(err);
-                console.log(e);
+
             }
         }
     };
