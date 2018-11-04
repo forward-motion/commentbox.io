@@ -240,7 +240,7 @@ commentBox('my-project-id', {
 ```
 We will go over each option below, but at minimum you must specify an `onSignOn` function.
 
-#### Styling the sign in button
+#### `buttonText`, `buttonIcon`, and `buttonColor`
 
 If the user navigates to the sign in screen in the plugin with Single Sign-On enabled, they will encounter an additional button that allows them to use their existing user account from your website to sign in. The `buttonText`, `buttonIcon`,and `buttonColor` options deal with styling this button.
 
@@ -253,19 +253,19 @@ With `autoSignOn` set to false (which is the default), plugin users may sign in 
 Here are a few scenarios to illustrate how it works when `autoSignOn` is set to true:
 
 ##### Scenario 1
-Website login status: not logged in.
+Website login status: not logged in.  
 Plugin login status: not logged in.
 
 In the plugin, the user will not be automatically logged in, but they will have the option to sign in with Single Sign-On from the plugin's sign in screen (in addition to the usual Social and email options).
 
 ##### Scenario 2
-Website login status: logged in.
+Website login status: logged in.  
 Plugin login status: not logged in.
 
 In the plugin, the user will be automatically logged in using the user's data from your website.
 
 ##### Scenario 3
-Website login status: logged in OR not logged in.
+Website login status: logged in OR not logged in.  
 Plugin login status: logged in.
 
 In the plugin, the user will **not** be automatically logged in using the user's data from your website, since they are already logged in (irrespective to how they chose to log in).
@@ -306,7 +306,7 @@ app.get('/sso', (req, res) => {
        exp: now + (60 * 5), // expires 5 minutes from now
        iat: now
     };
-    const secret = 'this-is-you-secret-from-the-dashboard';
+    const secret = 'this-is-your-secret-from-the-dashboard';
     const token = jwt.sign(payload, secret, { algorithm: 'HS256'});
     
     res.send(token);
@@ -318,15 +318,20 @@ commentBox('my-project-id', {
     singleSignOn: {
         onSignOn(onComplete, onError) {
             
-            fetch('/sso').then(response => {
+            fetch('/sso')
+            .then(response => {
                 
                 if(response.ok) {
                     return response.text();
                 }
                 throw new Error('Could not sign in.');
             })
-            .then(onComplete)
-            .catch(onError);
+            .then(token => {
+                onComplete(token);
+            })
+            .catch(err => {
+                onError(err);
+            });
         }
     }
 });
