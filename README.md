@@ -215,7 +215,7 @@ commentBox('my-project-id', {
 });
 ```
 
-### Enabling Single Sign-On
+### Single Sign-On
 
 This option is available to projects on the Professional plan only.
 
@@ -240,11 +240,11 @@ commentBox('my-project-id', {
 ```
 We will go over each option below, but at minimum you must specify an `onSignOn` function.
 
-#### Using buttonText, buttonIcon, and buttonColor
+#### - Using buttonText, buttonIcon, and buttonColor
 
 If the user navigates to the sign in screen in the plugin with Single Sign-On enabled, they will encounter an additional button that allows them to use their existing user account from your website to sign in. The `buttonText`, `buttonIcon`,and `buttonColor` options deal with styling this button.
 
-#### Using autoSignOn
+#### - Using autoSignOn
 
 This option allows the plugin to attempt to automatically log the user in with their existing user account from your website to sign in. Note that this is only effective if they are not already signed in to the plugin.
 
@@ -270,7 +270,7 @@ Plugin login status: logged in.
 
 In the plugin, the user will **not** be automatically logged in using the user's data from your website, since they are already logged in (irrespective to how they chose to log in).
 
-#### Using onSignOn
+#### - Using onSignOn
 The `onSignOn` function is how the plugin communicates to your website that a user wants to use their auth data from your website. Your code must then send this data back as a signed [JSON Web Token](https://jwt.io/introduction/) (JWT).
 
 You must write **server-side** code to perform the signing, which uses a **secret** key found in your project's setup screen in the CommentBox.io dashboard. DO NOT expose your secret key in any client-side code. Whenever `onSignOn` is called, you must then call your server-side code to return the signed user data to the plugin using the `onComplete` callback. If an error occurs instead, pass an `Error` object to the `onError` callback.
@@ -341,8 +341,8 @@ A few notes on the payload:
 - Notice that these tokens are **short-lived**. The maximum lifespan of an acceptable token is 10 minutes.
 - The email must be unique to the user. If you have users with different IDs and the same email, only the account that logs in first will be accepted. The other accounts will fail silently (at this time).
 
-#### Using onSignOut
-This function gets called whenever the user is logged in via Single Sign-On and logs out in the plugin. You may use this callback to log the user out of your website as well, but it's not required. It depends on the experience you're aiming for. One common use case is if you wish to make the comment box only accessible to users who are logged in to your website. When they log out, you can use `onSignOut` to hide the comment box again.
+#### - Using onSignOut
+This function gets called whenever the user is logged in via Single Sign-On and chooses to log out. You may use this callback to log the user out of your website as well, but it's not required. It depends on the experience you're aiming for. One common use case is if you wish to make the comment box only accessible to users who are logged in to your website. When they log out, you can use `onSignOut` to hide the comment box again.
 
 
 
