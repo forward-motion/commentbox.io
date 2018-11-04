@@ -115,6 +115,8 @@ You can also moderate comments within the plugin, with the ability to remove pub
 
 You or your moderators can block users either in the dashboard or within the plugin. You can block a user forever, or choose a specific length of time to block them. This will display their blocked status in the plugin, and prevent them from commenting for the duration of the block.
 
+If you have subscribed to the Moderation Plus add-on, you can also "shadow" block users. The option to do so will appear in the same blocking modal, as the question "Should they be aware that they are blocked?". Selecting "No" means that this user will still be able to make comments, but no other users (including moderators) will see these comments. Note that this does not apply to comments made before blocking the user.
+
 ### Changing Payment Method
 
 You may change your credit card details either from the Account modal, or in a project's setup page. Note that there can only be one payment method established for a user, which is applied to all projects created by that user, so setting a new payment method applies to all existing projects as well.

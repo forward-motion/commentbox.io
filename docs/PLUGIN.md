@@ -40,3 +40,11 @@ Click on the avatar of the user you'd like to block, and the option to block the
 #### Pinning comments
 
 "Pinning" a comment keeps it at the top of the level it's in. Pinning top-level comments is a great way to signify importance. To pin a comment, simply hover on the comment you'd like to pin, and the option will appear.
+
+#### Locking or disabling comments
+
+If you are a moderator of a project subscribed to the Moderation Plus add-on, the options to lock or disable comments on a page will be visible on the header of the comment box.
+
+*Locking* means that any existing comments on the page will remain visible, but no new comments can be made.
+
+*Disabling* means that no new comments can be made, and any existing comments will no longer be visible.
