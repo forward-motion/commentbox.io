@@ -16,7 +16,7 @@ In your HTML, find the place where you want your comment box to show up, and pas
 ```
 Be sure to replace `my-project-id` with your actual project ID from the [CommentBox.io Dashboard](https://dashboard.commentbox.io).
 
-### Usage in a JavaScript build process
+## Usage in a JavaScript build process
 
 In your HTML, find the place where you want your comment box to show up and place an empty `div` tag with the "commentbox" class:
 ```html
