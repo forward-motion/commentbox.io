@@ -4,18 +4,20 @@ This documentation is for the base JavaScript plugin. If you're looking for the 
 
 Before you begin, please create a project in the [CommentBox.io Dashboard](https://dashboard.commentbox.io). Click [here](https://commentbox.io/docs/dashboard) to learn more about the dashboard and how to use it.
 
+Below, select the usage that best fits your situation.
 
-```bash
-npm install commentbox.io --save
-```
-or
+## Usage in HTML
+In your HTML, find the place where you want your comment box to show up, and paste the following snippet:
 ```html
+<div class="commentbox"></div>
 <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+<script>commentBox('my-project-id')</script>
 ```
+Be sure to replace `my-project-id` with your actual project ID from the [CommentBox.io Dashboard](https://dashboard.commentbox.io).
 
-## Usage
+### Usage in a JavaScript build process
 
-In your HTML, place an empty `div` tag with the "commentbox" class:
+In your HTML, find the place where you want your comment box to show up and place an empty `div` tag with the "commentbox" class:
 ```html
 <div class="commentbox"></div>
 ```
@@ -25,12 +27,10 @@ Then, in your JavaScript, initialize with your project ID:
 import commentBox from 'commentbox.io';
 // or
 const commentBox = require('commentbox.io');
-// or if using the CDN, it will be available as a global "commentBox" variable.
 
 commentBox('my-project-id');
 ```
-
-That's it!
+Be sure to replace `my-project-id` with your actual project ID from the [CommentBox.io Dashboard](https://dashboard.commentbox.io).
 
 ## Usage in React
 
@@ -70,6 +70,7 @@ commentBox('my-project-id', {
     className: 'commentbox', // the class of divs to look for
     defaultBoxId: 'commentbox', // the default ID to associate to the div
     tlcParam: 'tlc', // used for identifying links to comments on your page
+    sortOrder: 'best', // specify the default comment sort order
     backgroundColor: null, // default transparent
     textColor: null, // default black
     subtextColor: null, // default grey

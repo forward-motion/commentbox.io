@@ -1,8 +1,13 @@
 {
   "name": "commentbox.io",
-  "version": "2.0.0",
-  "description": "The CommentBox.io embedded plugin libary",
-  "keywords": [ "comments", "commentbox", "commenting", "disqus" ],
+  "version": "2.1.0",
+  "description": "The CommentBox.io embedded plugin library",
+  "keywords": [
+    "comments",
+    "commentbox",
+    "commenting",
+    "disqus"
+  ],
   "main": "dist/commentBox.min.js",
   "module": "src/commentBox.js",
   "scripts": {

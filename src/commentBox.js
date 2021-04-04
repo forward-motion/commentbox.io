@@ -4,6 +4,7 @@ const defaultOptions = {
     className: 'commentbox', // the class of divs to look for
     defaultBoxId: 'commentbox', // the default ID to associate to the div
     tlcParam: 'tlc', // used for identifying links to comments on your page
+    sortOrder: 'best', // specify the default comment sort order
     backgroundColor: null, // default transparent
     textColor: null, // default black
     subtextColor: null, // default grey
@@ -56,6 +57,7 @@ export default function commentBox(projectId, passedOptions = defaultOptions) {
         className,
         defaultBoxId,
         tlcParam,
+        sortOrder,
         backgroundColor,
         textColor,
         subtextColor,
@@ -131,6 +133,7 @@ export default function commentBox(projectId, passedOptions = defaultOptions) {
             background_color: backgroundColor,
             text_color: textColor,
             subtext_color: subtextColor,
+            sort_order: sortOrder,
         };
         const makeIframe = () => {
 
