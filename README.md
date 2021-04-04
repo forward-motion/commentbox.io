@@ -7,6 +7,7 @@ Before you begin, please create a project in the [CommentBox.io Dashboard](https
 Below, select the usage that best fits your situation.
 
 ## Usage in HTML
+
 In your HTML, find the place where you want your comment box to show up, and paste the following snippet:
 ```html
 <div class="commentbox"></div>
