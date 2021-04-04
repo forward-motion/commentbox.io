@@ -162,10 +162,14 @@ Each file is a JSON object that contains a `data` and `sig` property. The `data`
 
 You can download all files as a single zip file, or individually by selecting the appropriate option in the menu.
 
-### Deleting a Project
+### Deleting a Project/Cancelling a Subscription
 
-You may delete an existing project via the "danger zone" link at the bottom of the project's Setup page. Note that this removes all existing project data, including comments.
+You may delete an existing project via the "Delete Project" link at the bottom of the project's Setup page. Note that this removes all existing project data, including comments.
 
-### Deleting Your Account
+Your billing plan will be cancelled automatically as well.
 
-You may delete your account at any time via the "danger zone" in the Account modal. Note that this removes all your projects' data, including comments.
+### Deleting Your Account/Cancelling all Subscriptions
+
+You may delete your account at any time via the "Delete Account" button in the Account modal. Note that this removes all your projects' data, including comments.
+
+All billing plans will be cancelled automatically as well.
