@@ -22,10 +22,8 @@ We offer two plans:
     - Unlimited page views
     - Basic moderation tools
 
-Additionally we offer a **Moderation Plus** optional add-on, which unlocks extra moderation features.
+Additionally, we offer a **Moderation Plus** optional add-on, which unlocks extra moderation features.
 - $20 per month per group of 5K comments
-    - Example 1: 0 - 4,999 comments yields a bill of $20.
-    - Example 2: 5,001 comments yields a bill of $40.
 - Granular moderation filters
 - Search and filtering capability
 - Up to nine extra moderators
