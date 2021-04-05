@@ -16,9 +16,16 @@ In your HTML, find the place where you want your comment box to show up, and pas
 ```
 Be sure to replace `my-project-id` with your actual project ID from the [CommentBox.io Dashboard](https://dashboard.commentbox.io).
 
+That's it!
+
 ## Usage in a JavaScript build process
 
-In your HTML, find the place where you want your comment box to show up and place an empty `div` tag with the "commentbox" class:
+Install the `commentbox.io` package from NPM:
+```bash
+npm install --save commentbox.io
+```
+
+Then in your HTML, find the place where you want your comment box to show up and place an empty `div` tag with the "commentbox" class:
 ```html
 <div class="commentbox"></div>
 ```
@@ -35,7 +42,7 @@ Be sure to replace `my-project-id` with your actual project ID from the [Comment
 
 ## Usage in React
 
-Supporting React is pretty simple:
+Supporting React is pretty simple. The principles are the same as in the non-React build process example, except that you'll want to be sure to call the `commentBox` function in the `componentDidMount` lifecycle event. The `commentBox` function returns a handy function to clean itself up, so you can call this cleanup function when your component unmounts in`componentWillUnmount`:
 
 ```jsx
 import React from 'react';
@@ -61,7 +68,6 @@ class PageWithComments extends React.Component {
     }
 }
 ```
-The principles are the same as in the non-React example, except that you'll want to be sure to call the `commentBox` function in the `componentDidMount` lifecycle event. The `commentBox` function returns a handy function to clean itself up, so you can call this cleanup function when your component unmounts in`componentWillUnmount`.
 
 ## Advanced Usage
 
